@@ -19,11 +19,7 @@ const UploadModal = () => {
   const supabaseClient = useSupabaseClient();
   const router = useRouter();
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-  } = useForm<FieldValues>({
+  const { register, handleSubmit, reset } = useForm<FieldValues>({
     defaultValues: {
       author: "",
       title: "",
@@ -79,15 +75,13 @@ const UploadModal = () => {
         return toast.error("Failed image upload");
       }
 
-      const { error: supabaseError } = await supabaseClient
-        .from("songs")
-        .insert({
-          user_id: user.id,
-          title: values.title,
-          author: values.author,
-          image_path: imageData.path,
-          song_path: songData.path,
-        });
+      const { error: supabaseError } = await supabaseClient.from("songs").insert({
+        user_id: user.id,
+        title: values.title,
+        author: values.author,
+        image_path: imageData.path,
+        song_path: songData.path,
+      });
 
       if (supabaseError) {
         setIsLoading(false);
@@ -99,9 +93,8 @@ const UploadModal = () => {
       toast.success("Song created!");
       reset();
       uploadModal.onClose();
-    } catch (error) {
-      console.error("Upload error:", error); // Logs error for debugging
-      toast.error("Something went wrong");
+    } catch (_) {
+      toast.error("Something went wrong"); // Replace 'error' with '_'
     } finally {
       setIsLoading(false);
     }
