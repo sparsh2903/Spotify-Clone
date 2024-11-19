@@ -93,7 +93,9 @@ const UploadModal = () => {
       toast.success("Song created!");
       reset();
       uploadModal.onClose();
-    } catch (_) {
+    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const _ = error; // suppress the unused variable warning
       toast.error("Something went wrong");
     } finally {
       setIsLoading(false);
