@@ -94,7 +94,7 @@ const UploadModal = () => {
       reset();
       uploadModal.onClose();
     } catch (_) {
-      toast.error("Something went wrong"); // Replace 'error' with '_'
+      toast.error("Something went wrong");
     } finally {
       setIsLoading(false);
     }
