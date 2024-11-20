@@ -5,10 +5,10 @@ export interface Song {
     user_id: string;
     author: string;
     title: string;
-    song_path: string;
     image_path: string;
-};
-
+    song_path: string;
+  };
+  
 export interface UserDetails {
     id: string;
     first_name: string;
