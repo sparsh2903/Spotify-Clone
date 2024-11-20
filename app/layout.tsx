@@ -21,8 +21,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Fullstack Spotify Clone",
-  description: "Listen to music!",
+  title: "Beat Link",
+  description: "Listen the music that you love!",
 };
 
 export const revalidate = 0;
